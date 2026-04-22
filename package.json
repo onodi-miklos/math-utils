@@ -1,0 +1,18 @@
+{
+  "name": "@onodi-miklos/math-utils",
+  "version": "1.0.0",
+  "description": "Some Math Utility",
+  "main": "dist/index.js",
+  "author": "Ónodi Miklós",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onodi-miklos/math-utils.git"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "test": "tsc && node dist/index.js"
+  }
+}
