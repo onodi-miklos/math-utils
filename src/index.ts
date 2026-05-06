@@ -1,28 +1,65 @@
 const PI: number = 3.1415926535897932384626433832795028841971693993;
-const pi: number = round(PI, 5)
+const pi: number = round(PI, 5);
 function round(number: number, accuracy: number): number {
-  const string: string = String(number)
-  const index: number = string.indexOf('.')
-  const rounded: number = Number(string.slice(0, (index + accuracy + 1)))
+  if (typeof(number) !== 'number') {
+    throw new Error('Function only accepts a number as arg. "number"')
+  }
+  if (typeof(accuracy) !== 'number' || (accuracy % 1 !== 0 && accuracy < 0)) {
+    throw new Error('Function only accepts a positive integer as arg. "accuracy"')
+  }
+  const string: string = String(number);
+  const index: number = string.indexOf(".");
+  const rounded: number = Number(string.slice(0, index + accuracy + 1));
   return rounded;
 }
 function degToRad(deg: number): number {
+  if (typeof deg !== "number") {
+    throw new Error("Function only accepts numbers.");
+  }
   const rad: number = (deg * pi) / 180;
   return rad;
 }
 function radToDeg(rad: number): number {
+  if (typeof rad !== "number") {
+    throw new Error("Function only accepts numbers.");
+  }
   const deg: number = (rad / pi) * 180;
   return deg;
 }
-function avarage(numbers: number[]): number{
-  let n: number = 0;
+function getAvarage(numbers: number[]): number {
+  let n: number = numbers.length;
+  if (n === 0) {
+    return 0;
+  }
   let sum: number = 0;
   for (let i = 0; i++; i < numbers.length) {
-    n++;
-    sum+= numbers[i]
+    if (typeof i !== "number") {
+      throw new Error("Function only accepts numbers.");
+    }
+    sum += numbers[i];
   }
   const avarage: number = sum / n;
   return avarage;
 }
+function getFactorial(number: number): number {
+  if (number === 0) {
+    return 1;
+  }
+  if (number % 1 === 0 && number > 0) {
+    let factorial: number;
+    factorial = number * getFactorial(number - 1);
 
-module.exports = { PI, pi, round, degToRad, radToDeg, avarage };
+    return factorial;
+  }
+  throw new Error("Function accepts only integers not less than 0.");
+}
+
+module.exports = {
+  PI,
+  pi,
+  round,
+  degToRad,
+  radToDeg,
+  getAvarage,
+  getFactorial,
+};
