@@ -34,9 +34,9 @@ function getAvarage(numbers) {
         return 0;
     }
     let sum = 0;
-    for (let i = 0; i++; i < numbers.length) {
-        if (typeof i !== "number") {
-            throw new Error("Function only accepts numbers.");
+    for (let i = 0; i < numbers.length; i++) {
+        if (typeof numbers[i] !== "number") {
+            throw new Error("Function only accepts a number array.");
         }
         sum += numbers[i];
     }
