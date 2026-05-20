@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const PI = 3.1415926535897932384626433832795028841971693993;
 const pi = round(PI, 5);
+console.log(pi);
 function round(number, accuracy) {
     if (typeof (number) !== 'number') {
         throw new Error('Function only accepts a number as arg. "number"');
@@ -54,6 +55,20 @@ function getFactorial(number) {
     }
     throw new Error("Function accepts only integers not less than 0.");
 }
+function getAbsoluteValue(number) {
+    if (typeof number !== "number") {
+        throw new Error("Function only accepts numbers.");
+    }
+    if (number === 0) {
+        return 0;
+    }
+    else if (number > 0) {
+        return number;
+    }
+    else {
+        return -number;
+    }
+}
 module.exports = {
     PI,
     pi,
@@ -62,5 +77,6 @@ module.exports = {
     radToDeg,
     getAvarage,
     getFactorial,
+    getAbsoluteValue
 };
 //# sourceMappingURL=index.js.map
