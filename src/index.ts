@@ -53,6 +53,20 @@ function getFactorial(number: number): number {
   }
   throw new Error("Function accepts only integers not less than 0.");
 }
+function getAbsoluteValue(number: number):number{
+  if (typeof number !== "number") {
+    throw new Error("Function only accepts numbers.");
+  }
+  if (number === 0) {
+    return 0;
+  }
+  else if (number > 0) {
+    return number;
+  }
+  else {
+    return -number;
+  }
+}
 
 module.exports = {
   PI,
@@ -62,4 +76,5 @@ module.exports = {
   radToDeg,
   getAvarage,
   getFactorial,
+  getAbsoluteValue
 };
