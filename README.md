@@ -1,12 +1,15 @@
 # @onodi-miklos/math-utils
 
 Some math utility:
+
 value of pi,
-round number,
+rounding  numbers,
 convert angle units,
 get avarage,
 get factorial,
-get absolute value
+get absolute value,
+get reciprocal
+
 
 ## Installation
 

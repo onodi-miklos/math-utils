@@ -1,26 +1,30 @@
 const PI: number = 3.1415926535897932384626433832795028841971693993;
 const pi: number = round(PI, 5);
+
 function round(number: number, accuracy: number): number {
   if (number == undefined || accuracy == undefined) {
-    throw new Error('Fuction takes two numbers as arguments')
+    throw new Error("Fuction takes two numbers as arguments");
   }
-  if (typeof(number) !== 'number') {
-    throw new Error('Function only accepts a number as arg. "number"')
+  if (typeof number !== "number") {
+    throw new Error('Function only accepts a number as arg. "number"');
   }
-  if (typeof(accuracy) !== 'number' || (accuracy % 1 !== 0 && accuracy < 0)) {
-    throw new Error('Function only accepts a non-negative integer as arg. "accuracy"')
+  if (typeof accuracy !== "number" || (accuracy % 1 !== 0 && accuracy < 0)) {
+    throw new Error(
+      'Function only accepts a non-negative integer as arg. "accuracy"',
+    );
   }
   const string: string = String(number);
   const index: number = string.indexOf(".");
   let rounded: number = Number(string.slice(0, index + accuracy + 1));
   if (accuracy === 0) {
-    rounded = Number(string.slice(0, index + accuracy ))
+    rounded = Number(string.slice(0, index + accuracy));
   }
   return rounded;
 }
+
 function degToRad(deg: number): number {
   if (!deg) {
-    throw new Error('Fuction takes a number as argument')
+    throw new Error("Fuction takes a number as argument");
   }
   if (typeof deg !== "number") {
     throw new Error("Function only accepts numbers");
@@ -28,9 +32,10 @@ function degToRad(deg: number): number {
   const rad: number = (deg * pi) / 180;
   return rad;
 }
+
 function radToDeg(rad: number): number {
   if (!rad) {
-    throw new Error('Fuction takes a number as argument')
+    throw new Error("Fuction takes a number as argument");
   }
   if (typeof rad !== "number") {
     throw new Error("Function only accepts numbers");
@@ -38,9 +43,10 @@ function radToDeg(rad: number): number {
   const deg: number = (rad / pi) * 180;
   return deg;
 }
+
 function getAvarage(numbers: number[]): number {
   if (!numbers) {
-    throw new Error('Fuction takes a number array as argument')
+    throw new Error("Fuction takes a number array as argument");
   }
   let n: number = numbers.length;
   if (n === 0) {
@@ -56,9 +62,10 @@ function getAvarage(numbers: number[]): number {
   const avarage: number = sum / n;
   return avarage;
 }
+
 function getFactorial(number: number): number {
-  if (!number){
-    throw new Error('Function takes a number as argument')
+  if (!number) {
+    throw new Error("Function takes a number as argument");
   }
   if (number === 0) {
     return 1;
@@ -71,21 +78,35 @@ function getFactorial(number: number): number {
   }
   throw new Error("Function accepts only integers not less than 0");
 }
-function getAbsoluteValue(number: number):number{
-  if (!number){
-    throw new Error('Function takes a number as argument')
+
+function getAbsoluteValue(number: number): number {
+  if (!number) {
+    throw new Error("Function takes a number as argument");
   }
   if (typeof number !== "number") {
     throw new Error("Function only accepts a number as argument");
   }
   if (number === 0) {
     return 0;
-  }
-  else if (number > 0) {
+  } else if (number > 0) {
     return number;
-  }
-  else {
+  } else {
     return -number;
+  }
+}
+
+function getReciprocal(number: number): number {
+  if (!number) {
+    throw new Error("Function takes a number as argument");
+  }
+  if (typeof number !== "number") {
+    throw new Error("Function only accepts a number as argument");
+  }
+
+  if (number !== 0) {
+    return 1 / number;
+  } else {
+    throw new Error("Can not divide by 0");
   }
 }
 
@@ -97,5 +118,6 @@ module.exports = {
   radToDeg,
   getAvarage,
   getFactorial,
-  getAbsoluteValue
+  getAbsoluteValue,
+  getReciprocal
 };
