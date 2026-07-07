@@ -1,8 +1,8 @@
 const PI: number = 3.1415926535897932384626433832795028841971693993;
-const pi: number = round(PI, 5);
+const pi: number = sliceRound(PI, 5);
 
-function round(number: number, accuracy: number): number {
-  if (number == undefined || accuracy == undefined) {
+function sliceRound(number: number, accuracy: number): number {
+  if (number === undefined || accuracy === undefined) {
     throw new Error("Fuction takes two numbers as arguments");
   }
   if (typeof number !== "number") {
@@ -23,7 +23,7 @@ function round(number: number, accuracy: number): number {
 }
 
 function degToRad(deg: number): number {
-  if (!deg) {
+  if (deg === undefined) {
     throw new Error("Fuction takes a number as argument");
   }
   if (typeof deg !== "number") {
@@ -34,7 +34,7 @@ function degToRad(deg: number): number {
 }
 
 function radToDeg(rad: number): number {
-  if (!rad) {
+  if (rad === undefined) {
     throw new Error("Fuction takes a number as argument");
   }
   if (typeof rad !== "number") {
@@ -45,7 +45,7 @@ function radToDeg(rad: number): number {
 }
 
 function getAvarage(numbers: number[]): number {
-  if (!numbers) {
+  if (numbers === undefined) {
     throw new Error("Fuction takes a number array as argument");
   }
   let n: number = numbers.length;
@@ -64,7 +64,7 @@ function getAvarage(numbers: number[]): number {
 }
 
 function getFactorial(number: number): number {
-  if (!number) {
+  if (number === undefined) {
     throw new Error("Function takes a number as argument");
   }
   if (number === 0) {
@@ -80,7 +80,7 @@ function getFactorial(number: number): number {
 }
 
 function getAbsoluteValue(number: number): number {
-  if (!number) {
+  if (number === undefined) {
     throw new Error("Function takes a number as argument");
   }
   if (typeof number !== "number") {
@@ -96,7 +96,7 @@ function getAbsoluteValue(number: number): number {
 }
 
 function getReciprocal(number: number): number {
-  if (!number) {
+  if (number === undefined) {
     throw new Error("Function takes a number as argument");
   }
   if (typeof number !== "number") {
@@ -113,7 +113,7 @@ function getReciprocal(number: number): number {
 module.exports = {
   PI,
   pi,
-  round,
+  sliceRound,
   degToRad,
   radToDeg,
   getAvarage,

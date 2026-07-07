@@ -3,8 +3,8 @@
 Some math utility:
 
 value of pi,
-rounding  numbers,
-convert angle units,
+rounding  numbers using string slicing,
+convert angle units (radians and degrees),
 get avarage,
 get factorial,
 get absolute value,

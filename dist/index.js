@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const PI = 3.1415926535897932384626433832795028841971693993;
-const pi = round(PI, 5);
-console.log(pi);
-function round(number, accuracy) {
-    if (number == undefined || accuracy == undefined) {
+const pi = sliceRound(PI, 5);
+function sliceRound(number, accuracy) {
+    if (number === undefined || accuracy === undefined) {
         throw new Error("Fuction takes two numbers as arguments");
     }
     if (typeof number !== "number") {
@@ -22,7 +21,7 @@ function round(number, accuracy) {
     return rounded;
 }
 function degToRad(deg) {
-    if (!deg) {
+    if (deg === undefined) {
         throw new Error("Fuction takes a number as argument");
     }
     if (typeof deg !== "number") {
@@ -32,7 +31,7 @@ function degToRad(deg) {
     return rad;
 }
 function radToDeg(rad) {
-    if (!rad) {
+    if (rad === undefined) {
         throw new Error("Fuction takes a number as argument");
     }
     if (typeof rad !== "number") {
@@ -42,7 +41,7 @@ function radToDeg(rad) {
     return deg;
 }
 function getAvarage(numbers) {
-    if (!numbers) {
+    if (numbers === undefined) {
         throw new Error("Fuction takes a number array as argument");
     }
     let n = numbers.length;
@@ -60,7 +59,7 @@ function getAvarage(numbers) {
     return avarage;
 }
 function getFactorial(number) {
-    if (!number) {
+    if (number === undefined) {
         throw new Error("Function takes a number as argument");
     }
     if (number === 0) {
@@ -74,7 +73,7 @@ function getFactorial(number) {
     throw new Error("Function accepts only integers not less than 0");
 }
 function getAbsoluteValue(number) {
-    if (!number) {
+    if (number === undefined) {
         throw new Error("Function takes a number as argument");
     }
     if (typeof number !== "number") {
@@ -90,14 +89,29 @@ function getAbsoluteValue(number) {
         return -number;
     }
 }
+function getReciprocal(number) {
+    if (number === undefined) {
+        throw new Error("Function takes a number as argument");
+    }
+    if (typeof number !== "number") {
+        throw new Error("Function only accepts a number as argument");
+    }
+    if (number !== 0) {
+        return 1 / number;
+    }
+    else {
+        throw new Error("Can not divide by 0");
+    }
+}
 module.exports = {
     PI,
     pi,
-    round,
+    sliceRound,
     degToRad,
     radToDeg,
     getAvarage,
     getFactorial,
     getAbsoluteValue,
+    getReciprocal
 };
 //# sourceMappingURL=index.js.map
