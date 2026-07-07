@@ -9,7 +9,8 @@ function sliceRound(number, accuracy) {
     if (typeof number !== "number") {
         throw new Error('Function only accepts a number as arg. "number"');
     }
-    if (typeof accuracy !== "number" || (accuracy % 1 !== 0 && accuracy < 0)) {
+    if (typeof accuracy !== "number" ||
+        (accuracy % 1 !== 0 && accuracy < 0)) {
         throw new Error('Function only accepts a non-negative integer as arg. "accuracy"');
     }
     const string = String(number);
@@ -18,6 +19,20 @@ function sliceRound(number, accuracy) {
     if (accuracy === 0) {
         rounded = Number(string.slice(0, index + accuracy));
     }
+    return rounded;
+}
+function round(number, accuracy) {
+    if (number === undefined || accuracy === undefined) {
+        throw new Error("Fuction takes two numbers as arguments");
+    }
+    if (typeof number !== "number") {
+        throw new Error('Function only accepts a number as arg. "number"');
+    }
+    if (typeof accuracy !== "number" ||
+        (accuracy % 1 !== 0 && accuracy < 0)) {
+        throw new Error('Function only accepts a non-negative integer as arg. "accuracy"');
+    }
+    const rounded = Math.round(number / accuracy) * accuracy;
     return rounded;
 }
 function degToRad(deg) {
@@ -107,11 +122,12 @@ module.exports = {
     PI,
     pi,
     sliceRound,
+    round,
     degToRad,
     radToDeg,
     getAvarage,
     getFactorial,
     getAbsoluteValue,
-    getReciprocal
+    getReciprocal,
 };
 //# sourceMappingURL=index.js.map

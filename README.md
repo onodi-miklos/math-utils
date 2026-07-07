@@ -3,7 +3,8 @@
 Some math utility:
 
 value of pi,
-rounding  numbers using string slicing,
+round numbers using string slicing,
+round numbers using Math.round() to a specific accuracy,
 convert angle units (radians and degrees),
 get avarage,
 get factorial,
