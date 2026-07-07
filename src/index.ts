@@ -26,6 +26,7 @@ function sliceRound(number: number, accuracy: number): number {
         }
         return rounded;
 }
+
 function round(number: number, accuracy: number): number {
         if (number === undefined || accuracy === undefined) {
                 throw new Error("Fuction takes two numbers as arguments");
@@ -47,15 +48,56 @@ function round(number: number, accuracy: number): number {
         return rounded;
 }
 
-function degToRad(deg: number): number {
+interface Radian {
+        value: number;
+        string: string;
+}
+
+// AI generated
+function degToRad(deg: number): Radian {
         if (deg === undefined) {
                 throw new Error("Fuction takes a number as argument");
         }
         if (typeof deg !== "number") {
                 throw new Error("Function only accepts numbers");
         }
-        const rad: number = (deg * pi) / 180;
-        return rad;
+
+        const rad: number = (deg * PI) / 180;
+        const numerator: number = Math.abs(deg);
+        const denominator: number = 180;
+
+        let simplifiedNumerator: number = numerator;
+        let simplifiedDenominator: number = denominator;
+
+        if (Number.isInteger(numerator)) {
+                let greatestCommonDivisor: number = 1;
+
+                for (let i = 1; i <= Math.min(numerator, denominator); i++) {
+                        if (numerator % i === 0 && denominator % i === 0) {
+                                greatestCommonDivisor = i;
+                        }
+                }
+
+                simplifiedNumerator = numerator / greatestCommonDivisor;
+                simplifiedDenominator = denominator / greatestCommonDivisor;
+        }
+
+        let string: string;
+
+        if (deg === 0) {
+                string = "0";
+        } else if (simplifiedDenominator === 1) {
+                string = `${deg < 0 ? "-" : ""}${simplifiedNumerator} PI`;
+        } else if (simplifiedNumerator === 1) {
+                string = `PI / ${simplifiedDenominator}`;
+        } else {
+                string = `${deg < 0 ? "-" : ""}${simplifiedNumerator} PI / ${simplifiedDenominator}`;
+        }
+
+        return {
+                value: rad,
+                string: string,
+        };
 }
 
 function radToDeg(rad: number): number {
@@ -65,7 +107,7 @@ function radToDeg(rad: number): number {
         if (typeof rad !== "number") {
                 throw new Error("Function only accepts numbers");
         }
-        const deg: number = (rad / pi) * 180;
+        const deg: number = (rad / PI) * 180;
         return deg;
 }
 

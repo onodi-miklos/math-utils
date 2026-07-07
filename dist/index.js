@@ -35,6 +35,7 @@ function round(number, accuracy) {
     const rounded = Math.round(number / accuracy) * accuracy;
     return rounded;
 }
+// AI generated
 function degToRad(deg) {
     if (deg === undefined) {
         throw new Error("Fuction takes a number as argument");
@@ -42,9 +43,40 @@ function degToRad(deg) {
     if (typeof deg !== "number") {
         throw new Error("Function only accepts numbers");
     }
-    const rad = (deg * pi) / 180;
-    return rad;
+    const rad = (deg * PI) / 180;
+    const numerator = Math.abs(deg);
+    const denominator = 180;
+    let simplifiedNumerator = numerator;
+    let simplifiedDenominator = denominator;
+    if (Number.isInteger(numerator)) {
+        let greatestCommonDivisor = 1;
+        for (let i = 1; i <= Math.min(numerator, denominator); i++) {
+            if (numerator % i === 0 && denominator % i === 0) {
+                greatestCommonDivisor = i;
+            }
+        }
+        simplifiedNumerator = numerator / greatestCommonDivisor;
+        simplifiedDenominator = denominator / greatestCommonDivisor;
+    }
+    let string;
+    if (deg === 0) {
+        string = "0";
+    }
+    else if (simplifiedDenominator === 1) {
+        string = `${deg < 0 ? "-" : ""}${simplifiedNumerator} PI`;
+    }
+    else if (simplifiedNumerator === 1) {
+        string = `PI / ${simplifiedDenominator}`;
+    }
+    else {
+        string = `${deg < 0 ? "-" : ""}${simplifiedNumerator} PI / ${simplifiedDenominator}`;
+    }
+    return {
+        value: rad,
+        string: string,
+    };
 }
+console.log(degToRad(0), degToRad(30), degToRad(45), degToRad(60), degToRad(90), degToRad(180), degToRad(360), degToRad(4524));
 function radToDeg(rad) {
     if (rad === undefined) {
         throw new Error("Fuction takes a number as argument");
@@ -52,7 +84,7 @@ function radToDeg(rad) {
     if (typeof rad !== "number") {
         throw new Error("Function only accepts numbers");
     }
-    const deg = (rad / pi) * 180;
+    const deg = (rad / PI) * 180;
     return deg;
 }
 function getAvarage(numbers) {
