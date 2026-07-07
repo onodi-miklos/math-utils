@@ -85,7 +85,37 @@ function getFactorial(number) {
         factorial = number * getFactorial(number - 1);
         return factorial;
     }
-    throw new Error("Function accepts only integers not less than 0");
+    else {
+        throw new Error("Function accepts only integers not less than 0");
+    }
+}
+function getFactorialUsingGamma(number) {
+    if (number === undefined) {
+        throw new Error("Function accepts a number as argument");
+    }
+    return gamma(number);
+}
+// AI generated
+function gamma(z) {
+    if (z === undefined) {
+        throw new Error("Function accepts a number as argument");
+    }
+    const p = [
+        676.5203681218851, -1259.1392167224028, 771.3234287776531,
+        -176.6150291621406, 12.507343278686905, -0.13857109526572012,
+        9.984369578019572e-6, 1.5056327351493116e-7,
+    ];
+    if (z < 0.5) {
+        // Reflection formula
+        return Math.PI / (Math.sin(Math.PI * z) * gamma(1 - z));
+    }
+    z -= 1;
+    let x = 0.9999999999998099;
+    for (let i = 0; i < p.length; i++) {
+        x += p[i] / (z + i + 1);
+    }
+    const t = z + p.length - 0.5;
+    return Math.sqrt(2 * Math.PI) * Math.pow(t, z + 0.5) * Math.exp(-t) * x;
 }
 function getAbsoluteValue(number) {
     if (number === undefined) {
@@ -127,6 +157,8 @@ module.exports = {
     radToDeg,
     getAvarage,
     getFactorial,
+    getFactorialUsingGamma,
+    gamma,
     getAbsoluteValue,
     getReciprocal,
 };

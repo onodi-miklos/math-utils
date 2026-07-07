@@ -8,6 +8,8 @@ round numbers using Math.round() to a specific accuracy,
 convert angle units (radians and degrees),
 get avarage,
 get factorial,
+get factorial using the gamma function,
+gamma function,
 get absolute value,
 get reciprocal
 
