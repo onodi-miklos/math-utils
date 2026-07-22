@@ -1,5 +1,7 @@
 # @onodi-miklos/math-utils
 
+ESM!
+
 Some math utility:
 
 value of pi,

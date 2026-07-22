@@ -218,7 +218,7 @@ function getReciprocal(number: number): number {
         }
 }
 
-module.exports = {
+export {
         PI,
         pi,
         sliceRound,

@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const PI = 3.1415926535897932384626433832795028841971693993;
 const pi = sliceRound(PI, 5);
 function sliceRound(number, accuracy) {
@@ -76,7 +74,6 @@ function degToRad(deg) {
         string: string,
     };
 }
-console.log(degToRad(0), degToRad(30), degToRad(45), degToRad(60), degToRad(90), degToRad(180), degToRad(360), degToRad(4524));
 function radToDeg(rad) {
     if (rad === undefined) {
         throw new Error("Fuction takes a number as argument");
@@ -180,18 +177,5 @@ function getReciprocal(number) {
         throw new Error("Can not divide by 0");
     }
 }
-module.exports = {
-    PI,
-    pi,
-    sliceRound,
-    round,
-    degToRad,
-    radToDeg,
-    getAvarage,
-    getFactorial,
-    getFactorialUsingGamma,
-    gamma,
-    getAbsoluteValue,
-    getReciprocal,
-};
+export { PI, pi, sliceRound, round, degToRad, radToDeg, getAvarage, getFactorial, getFactorialUsingGamma, gamma, getAbsoluteValue, getReciprocal, };
 //# sourceMappingURL=index.js.map
